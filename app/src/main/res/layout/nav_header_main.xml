@@ -27,7 +27,7 @@
         android:src="@android:drawable/sym_def_app_icon" />-->
 
     <!--android:src="@android:drawable/sym_def_app_icon"-->
-    <animation.rpires.com.br.exemplosmaterialdesign.Utilitarios.CircleImageView2
+    <animation.rpires.com.br.exemplosmaterialdesign.utilitarios.CircleImageView2
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
         android:layout_width="96dp"

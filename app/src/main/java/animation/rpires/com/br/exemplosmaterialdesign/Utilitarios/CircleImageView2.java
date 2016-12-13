@@ -1,4 +1,4 @@
-package animation.rpires.com.br.exemplosmaterialdesign.Utilitarios;
+package animation.rpires.com.br.exemplosmaterialdesign.utilitarios;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,4 +1,4 @@
-package animation.rpires.com.br.exemplosmaterialdesign.Utilitarios;
+package animation.rpires.com.br.exemplosmaterialdesign.utilitarios;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
