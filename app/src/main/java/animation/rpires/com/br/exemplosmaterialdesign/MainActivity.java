@@ -88,8 +88,11 @@ public class MainActivity extends AppCompatActivity
             Intent it = new Intent(this, ToolbarSocialActivity.class);
             startActivity(it);
             //NavUtils.navigateUpTo(this, it);
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_recycle_view) {
 
+        } else if (id == R.id.nav_botao_customizado) {
+            Intent it = new Intent(this, BotaoCustomizadoActivity.class);
+            startActivity(it);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -20,16 +20,29 @@
             android:title="Tools" />
     </group>-->
 
+    <item android:title="Login">
+        <menu>
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ic_user_default"
+                android:title="Logar no sistema" />
+        </menu>
+    </item>
+
     <item android:title="Exemplos">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Toolbar" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_recycle_view"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Send" />
+            <item
+                android:id="@+id/nav_botao_customizado"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Botão Customizado" />
         </menu>
     </item>
 
