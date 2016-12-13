@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ToolbarSocialActivity">
+
+    <item
+        android:title="Facebook"
+        android:id="@+id/menu_button_facebook"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_facebook"
+        app:showAsAction="always" />
+
+    <item
+        android:title="Google"
+        android:id="@+id/menu_button_google_plus"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_google_plus"
+        app:showAsAction="always" />
+
+
+
+</menu>
