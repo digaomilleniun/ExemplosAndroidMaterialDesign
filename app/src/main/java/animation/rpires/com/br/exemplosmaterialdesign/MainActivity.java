@@ -95,7 +95,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(it);
             //NavUtils.navigateUpTo(this, it);
         } else if (id == R.id.nav_recycle_view) {
-
+            CarroRecyclerViewFragment carroFragment =
+                    (CarroRecyclerViewFragment) getSupportFragmentManager().findFragmentByTag("fragment_container");
+            if (carroFragment == null) {
+                carroFragment = new CarroRecyclerViewFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, carroFragment);
+                fragmentTransaction.commit();
+            }
         } else if (id == R.id.nav_botao_customizado) {
             Intent it = new Intent(this, BotaoCustomizadoActivity.class);
             startActivity(it);

@@ -37,8 +37,8 @@
                 android:title="Toolbar" />
             <item
                 android:id="@+id/nav_recycle_view"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:icon="@drawable/ic_menu_carro"
+                android:title="Recycle View" />
             <item
                 android:id="@+id/nav_botao_customizado"
                 android:icon="@drawable/ic_menu_send"
