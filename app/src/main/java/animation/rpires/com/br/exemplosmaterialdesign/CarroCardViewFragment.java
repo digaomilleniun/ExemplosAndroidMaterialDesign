@@ -13,27 +13,24 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import animation.rpires.com.br.exemplosmaterialdesign.adapter.CarroAdapter;
+import animation.rpires.com.br.exemplosmaterialdesign.adapter.CarroCardViewAdapter;
 import animation.rpires.com.br.exemplosmaterialdesign.domain.Carro;
 import animation.rpires.com.br.exemplosmaterialdesign.domain.RecyclerViewOnClickListener;
-
-import static android.widget.Toast.LENGTH_SHORT;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CarroRecyclerViewFragment.OnFragmentInteractionListener} interface
+ * {@link CarroCardViewFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CarroRecyclerViewFragment#newInstance} factory method to
+ * Use the {@link CarroCardViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewOnClickListener  {
+public class CarroCardViewFragment extends Fragment implements RecyclerViewOnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -53,7 +50,7 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
     private int visibleThreshold = 5;
     int firstVisibleItem, visibleItemCount, totalItemCount;
 
-    public CarroRecyclerViewFragment() {
+    public CarroCardViewFragment() {
         // Required empty public constructor
     }
 
@@ -63,11 +60,11 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CarroRecyclerViewFragment.
+     * @return A new instance of fragment CarroCardViewFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CarroRecyclerViewFragment newInstance(String param1, String param2) {
-        CarroRecyclerViewFragment fragment = new CarroRecyclerViewFragment();
+    public static CarroCardViewFragment newInstance(String param1, String param2) {
+        CarroCardViewFragment fragment = new CarroCardViewFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -87,10 +84,10 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_carro_card_view, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_carro_recycler_view, container, false);
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_list_car);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_card_view_list_car);
         //Deixa fixo o tamanho da view e mais otimizado
         recyclerView.setHasFixedSize(true);
 
@@ -99,13 +96,13 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
         recyclerView.setLayoutManager(lnm);
 
         listCarros = getListaCarros();
-        CarroAdapter adapter = new CarroAdapter(getActivity(), listCarros);
+        CarroCardViewAdapter adapter = new CarroCardViewAdapter(getActivity(), listCarros);
         //adapter.setRecyclerViewOnClickListener(this);//Umas das formas de gerar envendo de click na tela
         recyclerView.setAdapter(adapter);
 
         //Evento de click no item da lista.
         //Segunda forma de se fazer.
-        recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getActivity(), recyclerView, this));
+        recyclerView.addOnItemTouchListener(new RecyclerCardViewTouchListener(getActivity(), recyclerView, this));
 
         //Evento de adicionar mais linhas na lista quando ela chega ao final dos itens apresentados
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -119,7 +116,7 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
                 super.onScrolled(recyclerView, dx, dy);
 
                 LinearLayoutManager lnm = (LinearLayoutManager) recyclerView.getLayoutManager();
-                CarroAdapter adapter = (CarroAdapter) recyclerView.getAdapter();
+                CarroCardViewAdapter adapter = (CarroCardViewAdapter) recyclerView.getAdapter();
 
                 visibleItemCount = recyclerView.getChildCount();
                 totalItemCount = lnm.getItemCount();
@@ -152,32 +149,6 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
             }
         });
 
-        //Deprecated
-        /*recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                LinearLayoutManager lnm = (LinearLayoutManager) recyclerView.getLayoutManager();
-                CarroAdapter adapter = (CarroAdapter) recyclerView.getAdapter();
-
-                //Verifica se está no último item da lista
-                if (listCarros.size() == lnm.findLastCompletelyVisibleItemPosition() + 1) {
-                    List<Carro> listAux = getListaCarros();
-                    for (int i = 0; i < listAux.size(); i++) {
-                        Carro car = listAux.get(i);
-                        adapter.addItem(car, listCarros.size());
-                    }
-                }
-            }
-        });*/
-
-        // Inflate the layout for this fragment
         return view;
     }
 
@@ -205,7 +176,6 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
         mListener = null;
     }
 
-    //Umas das formas de gerar envendo de click na tela
     @Override
     public void onClickListener(View view, int position) {
         //Toast.makeText(getActivity(), "Position: " + position, Toast.LENGTH_SHORT).show();
@@ -235,11 +205,11 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
 
     public List<Carro> getListaCarros() {
         List<Carro> list = new ArrayList<Carro>();
-        Carro car1 = new Carro("Aventador", "Lamborghini", R.drawable.lamborghini_100);
-        Carro car2 = new Carro("Ferrari Vermelha", "Ferrari", R.drawable.ferrai_vermelha_100);
-        Carro car3 = new Carro("Ferrari Amarela", "Ferrari", R.drawable.ferrai_amarela_100);
-        Carro car4 = new Carro("Camaro Amarelo", "Camaro", R.drawable.camaro_amarelo_100);
-        Carro car5 = new Carro("Mustang Vermelho", "Mustang", R.drawable.mustang_vermelho_100);
+        Carro car1 = new Carro("Aventador", "Lamborghini", R.drawable.lamborghini_400);
+        Carro car2 = new Carro("Ferrari Vermelha", "Ferrari", R.drawable.ferrai_vermelha_400);
+        Carro car3 = new Carro("Ferrari Amarela", "Ferrari", R.drawable.ferrai_amarela_400);
+        Carro car4 = new Carro("Camaro Amarelo", "Camaro", R.drawable.camaro_amarelo_400);
+        Carro car5 = new Carro("Mustang Vermelho", "Mustang", R.drawable.mustang_vermelho_400);
 
         list.add(car1);
         list.add(car2);
@@ -250,7 +220,7 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
     }
 
     private void abrirDialogExclusao(final int position) {
-        final CarroAdapter adapter = (CarroAdapter) recyclerView.getAdapter();
+        final CarroCardViewAdapter adapter = (CarroCardViewAdapter) recyclerView.getAdapter();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.titulo_excluir_item);
         builder.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
@@ -273,12 +243,12 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
 
     // Segunda forma de implementar o click do item da lista.
     //Para fazer desta forma comente a primeira forma de click
-    private static class RecyclerViewTouchListener implements RecyclerView.OnItemTouchListener {
+    private static class RecyclerCardViewTouchListener implements RecyclerView.OnItemTouchListener {
         private Context contex;
         private GestureDetector gestureDetector;
         private RecyclerViewOnClickListener recyclerViewOnClickListener;
 
-        public RecyclerViewTouchListener(Context context, final RecyclerView recyclerView, final RecyclerViewOnClickListener recyclerViewOnClickListener) {
+        public RecyclerCardViewTouchListener(Context context, final RecyclerView recyclerView, final RecyclerViewOnClickListener recyclerViewOnClickListener) {
             this.contex = context;
             this.recyclerViewOnClickListener = recyclerViewOnClickListener;
 

@@ -21,20 +21,20 @@ import animation.rpires.com.br.exemplosmaterialdesign.domain.RecyclerViewOnClick
  * Created by rpires on 14/12/2016.
  */
 
-public class CarroAdapter extends RecyclerView.Adapter<CarroViewHolder>{
+public class CarroCardViewAdapter extends RecyclerView.Adapter<CarroViewHolder>{
 
     private List<Carro> listCarro;
     private LayoutInflater layoutInflater;
     private RecyclerViewOnClickListener recyclerViewOnClickListener;//Umas das formas de gerar envendo de click na tela
 
-    public CarroAdapter(Context context, List<Carro> list) {
+    public CarroCardViewAdapter(Context context, List<Carro> list) {
         this.listCarro = list;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public CarroViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = layoutInflater.inflate(R.layout.item_carro, viewGroup, false);
+        View view = layoutInflater.inflate(R.layout.item_carro_card_view, viewGroup, false);
         CarroViewHolder vh = new CarroViewHolder(view);
         return vh;
     }

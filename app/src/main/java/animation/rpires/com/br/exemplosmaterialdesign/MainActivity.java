@@ -106,6 +106,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_botao_customizado) {
             Intent it = new Intent(this, BotaoCustomizadoActivity.class);
             startActivity(it);
+        } else if (id == R.id.nav_card_view) {
+            CarroCardViewFragment carroFragment =
+                    (CarroCardViewFragment) getSupportFragmentManager().findFragmentByTag("fragment_container");
+            if (carroFragment == null) {
+                carroFragment = new CarroCardViewFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, carroFragment);
+                fragmentTransaction.commit();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

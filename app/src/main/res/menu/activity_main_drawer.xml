@@ -40,6 +40,10 @@
                 android:icon="@drawable/ic_menu_carro"
                 android:title="Recycle View" />
             <item
+                android:id="@+id/nav_card_view"
+                android:icon="@drawable/ic_menu_card_view"
+                android:title="Card View" />
+            <item
                 android:id="@+id/nav_botao_customizado"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Botão Customizado" />
