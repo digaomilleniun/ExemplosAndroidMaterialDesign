@@ -1,0 +1,30 @@
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="animation.rpires.com.br.exemplosmaterialdesign.CarroTabsCustomizadaFragment">-->
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="animation.rpires.com.br.exemplosmaterialdesign.CarroTabsCustomizadaFragment">
+
+        <animation.rpires.com.br.exemplosmaterialdesign.tab_layout.SlidingTabLayout
+            android:id="@+id/tab_carros_customizadas"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </animation.rpires.com.br.exemplosmaterialdesign.tab_layout.SlidingTabLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_page_tab_carros_customizadas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+<!--</FrameLayout>-->

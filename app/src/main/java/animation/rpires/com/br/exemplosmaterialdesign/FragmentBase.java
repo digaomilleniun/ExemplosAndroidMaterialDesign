@@ -5,5 +5,8 @@ package animation.rpires.com.br.exemplosmaterialdesign;
  */
 
 public interface FragmentBase extends SobreFragment.OnFragmentInteractionListener,
-        CarroRecyclerViewFragment.OnFragmentInteractionListener, CarroCardViewFragment.OnFragmentInteractionListener {
+        CarroRecyclerViewFragment.OnFragmentInteractionListener,
+        CarroCardViewFragment.OnFragmentInteractionListener,
+        CarroTabsFragment.OnFragmentInteractionListener,
+        CarroTabsCustomizadaFragment.OnFragmentInteractionListener {
 }

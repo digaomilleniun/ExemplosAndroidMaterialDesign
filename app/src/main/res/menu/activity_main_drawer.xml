@@ -32,6 +32,10 @@
     <item android:title="Exemplos">
         <menu>
             <item
+                android:id="@+id/nav_botao_customizado"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Botão Customizado" />
+            <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Toolbar" />
@@ -44,9 +48,13 @@
                 android:icon="@drawable/ic_menu_card_view"
                 android:title="Card View" />
             <item
-                android:id="@+id/nav_botao_customizado"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Botão Customizado" />
+                android:id="@+id/nav_tabs"
+                android:icon="@drawable/ic_menu_card_view"
+                android:title="Tabs" />
+            <item
+                android:id="@+id/nav_tabs_customizada"
+                android:icon="@drawable/ic_menu_card_view"
+                android:title="Tabs Customizadas" />
         </menu>
     </item>
 

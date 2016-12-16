@@ -115,6 +115,24 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction.replace(R.id.fragment_container, carroFragment);
                 fragmentTransaction.commit();
             }
+        } else if (id == R.id.nav_tabs) {
+            CarroTabsFragment carroFragment =
+                    (CarroTabsFragment) getSupportFragmentManager().findFragmentByTag("fragment_container");
+            if (carroFragment == null) {
+                carroFragment = new CarroTabsFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, carroFragment);
+                fragmentTransaction.commit();
+            }
+        } else if (id == R.id.nav_tabs_customizada) {
+            CarroTabsCustomizadaFragment carroFragment =
+                    (CarroTabsCustomizadaFragment) getSupportFragmentManager().findFragmentByTag("fragment_container");
+            if (carroFragment == null) {
+                carroFragment = new CarroTabsCustomizadaFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, carroFragment);
+                fragmentTransaction.commit();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
