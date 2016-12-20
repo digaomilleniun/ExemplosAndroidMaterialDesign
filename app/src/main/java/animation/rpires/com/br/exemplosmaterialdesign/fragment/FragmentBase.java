@@ -13,5 +13,6 @@ public interface FragmentBase extends SobreFragment.OnFragmentInteractionListene
         CarroCardViewFragment.OnFragmentInteractionListener,
         CarroTabsFragment.OnFragmentInteractionListener,
         CarroTabsCustomizadaFragment.OnFragmentInteractionListener,
-        TabsFloatingButtonsFragment.OnFragmentInteractionListener {
+        TabsFloatingButtonsFragment.OnFragmentInteractionListener,
+        SwipeRefreshFragment.OnFragmentInteractionListener{
 }

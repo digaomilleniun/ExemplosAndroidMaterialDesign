@@ -63,6 +63,9 @@
                 android:id="@+id/nav_tabs_floating_button"
                 android:icon="@drawable/ic_menu_floating_button"
                 android:title="Floating Buttons" />
+            <item
+                android:id="@+id/nav_swipe_refresh"                android:icon="@drawable/ic_menu_refresh"
+                android:title="Swipe Refresh" />
 
         </menu>
     </item>

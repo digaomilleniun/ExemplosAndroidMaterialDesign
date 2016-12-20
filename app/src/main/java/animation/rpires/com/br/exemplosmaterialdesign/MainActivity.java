@@ -19,6 +19,7 @@ import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroCardViewFrag
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroRecyclerViewFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.FragmentBase;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.SobreFragment;
+import animation.rpires.com.br.exemplosmaterialdesign.fragment.SwipeRefreshFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.CarroTabsCustomizadaFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.CarroTabsFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.TabsFloatingButtonsFragment;
@@ -156,6 +157,15 @@ public class MainActivity extends AppCompatActivity
                     (TabsFloatingButtonsFragment) getSupportFragmentManager().findFragmentByTag("fragment_container");
             if (carroFragment == null) {
                 carroFragment = new TabsFloatingButtonsFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, carroFragment);
+                fragmentTransaction.commit();
+            }
+        } else if (id == R.id.nav_swipe_refresh) {
+            SwipeRefreshFragment carroFragment =
+                    (SwipeRefreshFragment) getSupportFragmentManager().findFragmentByTag("fragment_container");
+            if (carroFragment == null) {
+                carroFragment = new SwipeRefreshFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, carroFragment);
                 fragmentTransaction.commit();
