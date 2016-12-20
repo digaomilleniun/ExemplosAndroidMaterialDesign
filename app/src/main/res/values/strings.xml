@@ -11,9 +11,13 @@
     <string name="texto_sobre">Comentários da página sobre.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="exemplo_floating_button">Exemplos de floating button</string>
+
+    <string name="exemplo_floating_button_progress">Exemplos de floating button com progress</string>
 
     <string name="titulo_excluir_item">Deseja realmente excluir este item?</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna tortor, semper eu feugiat eu, vehicula vitae lacus.</string>
 </resources>

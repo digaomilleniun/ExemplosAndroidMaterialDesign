@@ -1,28 +1,25 @@
-package animation.rpires.com.br.exemplosmaterialdesign;
+package animation.rpires.com.br.exemplosmaterialdesign.fragment;
 
 import android.content.Context;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import animation.rpires.com.br.exemplosmaterialdesign.tab_layout.SlidingTabLayout;
+import animation.rpires.com.br.exemplosmaterialdesign.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CarroTabsFragment.OnFragmentInteractionListener} interface
+ * {@link SobreFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CarroTabsFragment#newInstance} factory method to
+ * Use the {@link SobreFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CarroTabsFragment extends Fragment {
+public class SobreFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,7 +31,7 @@ public class CarroTabsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public CarroTabsFragment() {
+    public SobreFragment() {
         // Required empty public constructor
     }
 
@@ -44,11 +41,11 @@ public class CarroTabsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CarroTabsFragment.
+     * @return A new instance of fragment SobreFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CarroTabsFragment newInstance(String param1, String param2) {
-        CarroTabsFragment fragment = new CarroTabsFragment();
+    public static SobreFragment newInstance(String param1, String param2) {
+        SobreFragment fragment = new SobreFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,20 +65,8 @@ public class CarroTabsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_carro_tabs, container, false);
-
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_carros);
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary, getActivity().getTheme()));
-        } else {
-            tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        }
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_sobre, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

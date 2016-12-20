@@ -54,7 +54,16 @@
             <item
                 android:id="@+id/nav_tabs_customizada"
                 android:icon="@drawable/ic_menu_card_view"
-                android:title="Tabs Customizadas" />
+                android:title="Tabs Customizadas s/Ícones" />
+            <item
+                android:id="@+id/nav_tabs_customizada_s_icones"
+                android:icon="@drawable/ic_menu_card_view"
+                android:title="Tabs Customizadas c/Ícones" />
+            <item
+                android:id="@+id/nav_tabs_floating_button"
+                android:icon="@drawable/ic_menu_floating_button"
+                android:title="Floating Buttons" />
+
         </menu>
     </item>
 

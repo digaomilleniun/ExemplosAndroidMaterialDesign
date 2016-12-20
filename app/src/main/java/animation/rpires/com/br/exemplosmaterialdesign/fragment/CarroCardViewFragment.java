@@ -1,4 +1,4 @@
-package animation.rpires.com.br.exemplosmaterialdesign;
+package animation.rpires.com.br.exemplosmaterialdesign.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import animation.rpires.com.br.exemplosmaterialdesign.R;
 import animation.rpires.com.br.exemplosmaterialdesign.adapter.CarroCardViewAdapter;
 import animation.rpires.com.br.exemplosmaterialdesign.domain.Carro;
 import animation.rpires.com.br.exemplosmaterialdesign.domain.RecyclerViewOnClickListener;
@@ -203,7 +204,7 @@ public class CarroCardViewFragment extends Fragment implements RecyclerViewOnCli
         void onFragmentInteraction(Uri uri);
     }
 
-    public List<Carro> getListaCarros() {
+    public static List<Carro> getListaCarros() {
         List<Carro> list = new ArrayList<Carro>();
         Carro car1 = new Carro("Aventador", "Lamborghini", R.drawable.lamborghini_400);
         Carro car2 = new Carro("Ferrari Vermelha", "Ferrari", R.drawable.ferrai_vermelha_400);

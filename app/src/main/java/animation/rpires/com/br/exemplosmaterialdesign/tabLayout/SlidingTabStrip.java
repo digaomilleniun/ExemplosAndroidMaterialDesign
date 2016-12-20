@@ -1,4 +1,4 @@
-package animation.rpires.com.br.exemplosmaterialdesign.tab_layout;
+package animation.rpires.com.br.exemplosmaterialdesign.tabLayout;
 
 /**
  * Created by rpires on 16/12/2016.

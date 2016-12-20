@@ -1,4 +1,4 @@
-package animation.rpires.com.br.exemplosmaterialdesign;
+package animation.rpires.com.br.exemplosmaterialdesign.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,16 +13,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import animation.rpires.com.br.exemplosmaterialdesign.R;
 import animation.rpires.com.br.exemplosmaterialdesign.adapter.CarroAdapter;
 import animation.rpires.com.br.exemplosmaterialdesign.domain.Carro;
 import animation.rpires.com.br.exemplosmaterialdesign.domain.RecyclerViewOnClickListener;
-
-import static android.widget.Toast.LENGTH_SHORT;
 
 
 /**
@@ -233,7 +231,7 @@ public class CarroRecyclerViewFragment extends Fragment implements RecyclerViewO
         void onFragmentInteraction(Uri uri);
     }
 
-    public List<Carro> getListaCarros() {
+    public static List<Carro> getListaCarros() {
         List<Carro> list = new ArrayList<Carro>();
         Carro car1 = new Carro("Aventador", "Lamborghini", R.drawable.lamborghini_100);
         Carro car2 = new Carro("Ferrari Vermelha", "Ferrari", R.drawable.ferrai_vermelha_100);
