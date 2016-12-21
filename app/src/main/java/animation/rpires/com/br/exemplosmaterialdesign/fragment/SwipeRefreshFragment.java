@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,6 +16,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionMenu;
 
@@ -35,10 +37,8 @@ public class SwipeRefreshFragment extends Fragment {
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     private FloatingActionMenu fab;
-    private int previousTotal = 0;
-    private boolean loading = true;
-    private int visibleThreshold = 5;
-    int firstVisibleItem, visibleItemCount, totalItemCount;
+    private TextView txtQuantidadeItens;
+    private CoordinatorLayout coordinatorLayout;
 
     public SwipeRefreshFragment() {
         // Required empty public constructor
@@ -56,6 +56,10 @@ public class SwipeRefreshFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_swipe_refresh, container, false);
+
+        coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.cordinator_layout_swipe);
+
+        txtQuantidadeItens = (TextView) view.findViewById(R.id.txtQuantidadeItens);
 
         //RecyclerView
         recyclerView = (RecyclerView) view.findViewById(R.id.recycle_view_swipe_refresh);
@@ -76,79 +80,87 @@ public class SwipeRefreshFragment extends Fragment {
         fab.setVerticalScrollBarEnabled(true);
         //FloatingActionMenu
 
+        adicionarLabelQuantidadeItens(listCarros.size(), listCarros.size());
 
         //SwipeRefreshLayout
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
+
+        // Configure the refreshing colors
+        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
                 if (ConectividadeUtils.isConnected(getActivity())) {
-                    LinearLayoutManager lnm = (LinearLayoutManager) recyclerView.getLayoutManager();
-                    CarroCardViewAdapter adapter = (CarroCardViewAdapter) recyclerView.getAdapter();
-
-                    visibleItemCount = recyclerView.getChildCount();
-                    totalItemCount = lnm.getItemCount();
-                    firstVisibleItem = lnm.findFirstVisibleItemPosition();
-
-                    //Limita até 50 registros
-                    if (totalItemCount < 50) {
-                        if (loading) {
-                            if (totalItemCount > previousTotal) {
-                                loading = false;
-                                previousTotal = totalItemCount;
-                            }
-                        }
-
-                        if (!loading && (totalItemCount - visibleItemCount)
-                                <= (firstVisibleItem + visibleThreshold)) {
-                            // End has been reached
-
-                            List<Carro> listAux = CarroCardViewFragment.getListaCarros();
-                            for (int i = 0; i < listAux.size(); i++) {
-                                Carro car = listAux.get(i);
-                                adapter.addItem(car, 0);
-                                lnm.smoothScrollToPosition(recyclerView, null, 0);
-                            }
-
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    SystemClock.sleep(2000);
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            swipeRefreshLayout.setRefreshing(false);
-                                        }
-                                    });
-                                }
-                            }).start();
-                            loading = true;
-                        }
-                    }
+                    refresh();
                 } else {
-                    swipeRefreshLayout.setRefreshing(false);
-                    Snackbar snackbar = Snackbar
-                            .make(fab, "Sem conexão de internet!", Snackbar.LENGTH_LONG)
-                            .setAction("Conectar", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    Intent it = new Intent(Settings.ACTION_WIFI_SETTINGS);
-                                    startActivity(it);
-                                }
-
-
-                            });
-
-                    // Changing message text color
-                    snackbar.setActionTextColor(Color.RED);
-                    snackbar.show();
+                    abrirSnackBar();
                 }
             }
         });
         //SwipeRefreshLayout
 
         return view;
+    }
+
+    private void abrirSnackBar() {
+        swipeRefreshLayout.setRefreshing(false);
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, "Sem conexão de internet!", Snackbar.LENGTH_LONG)
+                .setAction("Conectar", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent it = new Intent(Settings.ACTION_WIFI_SETTINGS);
+                        startActivity(it);
+                    }
+                });
+
+        // Changing message text color
+        snackbar.setActionTextColor(Color.RED);
+        snackbar.show();
+    }
+
+    private void refresh() {
+        LinearLayoutManager lnm = (LinearLayoutManager) recyclerView.getLayoutManager();
+        CarroCardViewAdapter adapter = (CarroCardViewAdapter) recyclerView.getAdapter();
+        int totalItemCount = lnm.getItemCount();
+
+        if (totalItemCount < 50) {
+            List<Carro> listAux = CarroCardViewFragment.getListaCarros();
+            for (int i = 0; i < listAux.size(); i++) {
+                Carro car = listAux.get(i);
+                adapter.addItem(car, 0);
+                lnm.smoothScrollToPosition(recyclerView, null, 0);
+            }
+
+            adicionarLabelQuantidadeItens(totalItemCount, listAux.size());
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    SystemClock.sleep(1500);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            swipeRefreshLayout.setRefreshing(false);
+                        }
+                    });
+                }
+            }).start();
+        } else {
+            txtQuantidadeItens.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+            txtQuantidadeItens.setText("Não existe mais itens para ser adicionado na lista!");
+            swipeRefreshLayout.setRefreshing(false);
+        }
+    }
+
+    private void adicionarLabelQuantidadeItens(int totalItemCount, int listSize) {
+        int totalItens = totalItemCount + listSize;
+        txtQuantidadeItens.setText("Quantidade de itens na lista: " + totalItens);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

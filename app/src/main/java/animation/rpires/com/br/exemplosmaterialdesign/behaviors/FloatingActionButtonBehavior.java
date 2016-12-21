@@ -1,4 +1,4 @@
-package animation.rpires.com.br.exemplosmaterialdesign.utilitarios;
+package animation.rpires.com.br.exemplosmaterialdesign.behaviors;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
@@ -13,18 +13,18 @@ import com.github.clans.fab.FloatingActionMenu;
  * Created by rpires on 20/12/2016.
  */
 
-public class FloatingActionButtonBehavior extends CoordinatorLayout.Behavior<FloatingActionButton> {
+public class FloatingActionButtonBehavior extends CoordinatorLayout.Behavior<FloatingActionMenu> {
 
     public FloatingActionButtonBehavior(Context context, AttributeSet attrs) {
     }
 
     @Override
-    public boolean layoutDependsOn(CoordinatorLayout parent, FloatingActionButton child, View dependency) {
+    public boolean layoutDependsOn(CoordinatorLayout parent, FloatingActionMenu child, View dependency) {
         return dependency instanceof Snackbar.SnackbarLayout;
     }
 
     @Override
-    public boolean onDependentViewChanged(CoordinatorLayout parent, FloatingActionButton child, View dependency) {
+    public boolean onDependentViewChanged(CoordinatorLayout parent, FloatingActionMenu child, View dependency) {
         float translationY = Math.min(0, dependency.getTranslationY() - dependency.getHeight());
         child.setTranslationY(translationY);
         return true;
