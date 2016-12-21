@@ -21,10 +21,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ToolbarSocialActivity" />
+        <activity android:name=".activity.ToolbarSocialActivity" />
         <activity
-            android:name=".BotaoCustomizadoActivity"
+            android:name=".activity.BotaoCustomizadoActivity"
             android:label="@string/title_activity_botao_customizado"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.transition.SlideTransitionActivity"
+            android:label="@string/title_activity_slide_transition"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.transition.FadeTransitionActivity"
+            android:label="@string/title_activity_fade_transition"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.transition.ListaTransitionsActivity"
+            android:label="@string/title_activity_lista_transitions"
             android:theme="@style/AppTheme"></activity>
     </application>
 

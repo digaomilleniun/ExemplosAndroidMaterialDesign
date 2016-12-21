@@ -64,9 +64,23 @@
                 android:icon="@drawable/ic_menu_floating_button"
                 android:title="Floating Buttons" />
             <item
-                android:id="@+id/nav_swipe_refresh"                android:icon="@drawable/ic_menu_refresh"
+                android:id="@+id/nav_swipe_refresh"
+                android:icon="@drawable/ic_menu_refresh"
                 android:title="Swipe Refresh" />
 
+        </menu>
+    </item>
+
+    <item android:title="Transitions">
+        <menu>
+            <item
+                android:id="@+id/nav_transitions_fragment"
+                android:icon="@drawable/ic_menu_setas"
+                android:title="Transições entre Fragmentos" />
+            <item
+                android:id="@+id/nav_transitions_activity"
+                android:icon="@drawable/ic_menu_setas"
+                android:title="Transições entre Activitys" />
         </menu>
     </item>
 

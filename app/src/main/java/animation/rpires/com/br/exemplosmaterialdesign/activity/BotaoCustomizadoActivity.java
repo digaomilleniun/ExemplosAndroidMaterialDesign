@@ -1,4 +1,4 @@
-package animation.rpires.com.br.exemplosmaterialdesign;
+package animation.rpires.com.br.exemplosmaterialdesign.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+
+import animation.rpires.com.br.exemplosmaterialdesign.R;
 
 public class BotaoCustomizadoActivity extends AppCompatActivity {
 

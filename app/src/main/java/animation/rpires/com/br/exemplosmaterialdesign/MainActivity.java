@@ -15,6 +15,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import animation.rpires.com.br.exemplosmaterialdesign.activity.BotaoCustomizadoActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.ToolbarSocialActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.ListaTransitionsActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.SlideTransitionActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroCardViewFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroRecyclerViewFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.FragmentBase;
@@ -170,6 +174,11 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction.replace(R.id.fragment_container, carroFragment);
                 fragmentTransaction.commit();
             }
+        } else if (id == R.id.nav_transitions_activity) {
+            Intent it = new Intent(this, ListaTransitionsActivity.class);
+            startActivity(it);
+        } else if (id == R.id.nav_transitions_fragment) {
+
         }
 
         /**
