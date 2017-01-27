@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.BotaoCustomizadoActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.ToolbarSocialActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.ListaTransitionsActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.MudancaLayoutActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.SlideTransitionActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.SwitchThemeActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroCardViewFragment;
@@ -180,6 +181,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(it);
         } else if (id == R.id.nav_transitions_troca_tema) {
             Intent it = new Intent(this, SwitchThemeActivity.class);
+            startActivity(it);
+        } else if (id == R.id.nav_transitions_troca_layout) {
+            Intent it = new Intent(this, MudancaLayoutActivity.class);
             startActivity(it);
         }
 

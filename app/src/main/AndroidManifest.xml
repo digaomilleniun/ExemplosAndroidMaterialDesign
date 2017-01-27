@@ -45,7 +45,10 @@
         <activity android:name=".activity.transition.AnimationsActivity1" />
         <activity android:name=".activity.transition.AnimationsActivity2" />
         <activity android:name=".activity.transition.RevealActivity" />
-        <activity android:name=".activity.transition.SwitchThemeActivity"></activity>
+        <activity android:name=".activity.transition.SwitchThemeActivity" />
+        <activity android:name=".activity.transition.MudancaLayoutActivity" />
+        <activity android:name=".activity.transition.MudancaLayoutActivity1" />
+        <activity android:name=".activity.transition.MudancaLayoutActivity2"></activity>
     </application>
 
 </manifest>

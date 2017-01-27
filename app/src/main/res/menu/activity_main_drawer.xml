@@ -78,6 +78,10 @@
                 android:icon="@drawable/ic_menu_setas"
                 android:title="Troca de Temas" />
             <item
+                android:id="@+id/nav_transitions_troca_layout"
+                android:icon="@drawable/ic_menu_setas"
+                android:title="Mudança de Layouts" />
+            <item
                 android:id="@+id/nav_transitions_activity"
                 android:icon="@drawable/ic_menu_setas"
                 android:title="Transições entre Activitys" />
