@@ -74,9 +74,9 @@
     <item android:title="Transitions">
         <menu>
             <item
-                android:id="@+id/nav_transitions_fragment"
+                android:id="@+id/nav_transitions_troca_tema"
                 android:icon="@drawable/ic_menu_setas"
-                android:title="Transições entre Fragmentos" />
+                android:title="Troca de Temas" />
             <item
                 android:id="@+id/nav_transitions_activity"
                 android:icon="@drawable/ic_menu_setas"

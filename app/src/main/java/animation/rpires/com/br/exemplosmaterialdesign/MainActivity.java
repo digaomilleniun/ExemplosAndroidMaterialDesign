@@ -19,6 +19,7 @@ import animation.rpires.com.br.exemplosmaterialdesign.activity.BotaoCustomizadoA
 import animation.rpires.com.br.exemplosmaterialdesign.activity.ToolbarSocialActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.ListaTransitionsActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.SlideTransitionActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.SwitchThemeActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroCardViewFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroRecyclerViewFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.FragmentBase;
@@ -177,8 +178,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_transitions_activity) {
             Intent it = new Intent(this, ListaTransitionsActivity.class);
             startActivity(it);
-        } else if (id == R.id.nav_transitions_fragment) {
-
+        } else if (id == R.id.nav_transitions_troca_tema) {
+            Intent it = new Intent(this, SwitchThemeActivity.class);
+            startActivity(it);
         }
 
         /**

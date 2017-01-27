@@ -37,7 +37,15 @@
         <activity
             android:name=".activity.transition.ListaTransitionsActivity"
             android:label="@string/title_activity_lista_transitions"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.transition.TransitionActivity1" />
+        <activity android:name=".activity.transition.TransitionActivity2" />
+        <activity android:name=".activity.transition.TransitionActivity3" />
+        <activity android:name=".activity.transition.SharedElementActivity" />
+        <activity android:name=".activity.transition.AnimationsActivity1" />
+        <activity android:name=".activity.transition.AnimationsActivity2" />
+        <activity android:name=".activity.transition.RevealActivity" />
+        <activity android:name=".activity.transition.SwitchThemeActivity"></activity>
     </application>
 
 </manifest>
