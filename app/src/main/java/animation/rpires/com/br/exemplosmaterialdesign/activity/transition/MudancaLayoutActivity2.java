@@ -1,73 +1,59 @@
 package animation.rpires.com.br.exemplosmaterialdesign.activity.transition;
 
-import android.animation.Animator;
-import android.support.v7.app.AppCompatActivity;
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewPropertyAnimator;
-import android.widget.LinearLayout;
-import android.transition.Transition;
 
+import animation.rpires.com.br.exemplosmaterialdesign.BaseDetailActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.R;
-import animation.rpires.com.br.exemplosmaterialdesign.adapter.AnimatorAdapter;
-import animation.rpires.com.br.exemplosmaterialdesign.adapter.TransitionAdapter;
+import animation.rpires.com.br.exemplosmaterialdesign.domain.ExemploCor;
 
-public class MudancaLayoutActivity2 extends AppCompatActivity {
+public class MudancaLayoutActivity2 extends BaseDetailActivity {
 
-    private static final int SCALE_DELAY = 30;
-    private LinearLayout rowContainer;
+    private View mFabButton;
+    private View mHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mudanca_layout2);
+        setupToolbar();
 
-        rowContainer = (LinearLayout) findViewById(R.id.row_container2);
+        mFabButton = findViewById(R.id.fab_button);
+        mHeader = findViewById(R.id.activity_transition_header);
+
+        ExemploCor sample = (ExemploCor) getIntent().getExtras().getSerializable(EXTRA_SAMPLE);
+        DrawableCompat.setTint(mFabButton.getBackground(), getResources().getColor(sample.getColor()));
 
         Slide slideExitTransition = new Slide(Gravity.BOTTOM);
         slideExitTransition.excludeTarget(android.R.id.navigationBarBackground, true);
         slideExitTransition.excludeTarget(android.R.id.statusBarBackground, true);
-
-        getWindow().getEnterTransition().addListener(new TransitionAdapter() {
-
-            @Override
-            public void onTransitionEnd(Transition transition) {
-
-                super.onTransitionEnd(transition);
-
-                getWindow().getEnterTransition().removeListener(this);
-
-                for (int i = 0; i < rowContainer.getChildCount(); i++) {
-
-                    View rowView = rowContainer.getChildAt(i);
-                    rowView.animate().setStartDelay(i * SCALE_DELAY)
-                            .scaleX(1).scaleY(1);
-                }
-            }
-        });
+        slideExitTransition.excludeTarget(R.id.activity_transition_header, true);
+        getWindow().setExitTransition(slideExitTransition);
     }
 
     @Override
-    public void onBackPressed() {
+    protected void setupToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setTitle("Toolbar");
+        toolbar.setSubtitle("Troca de Layouts");
+        toolbar.setLogo(R.mipmap.ic_launcher);
+    }
 
-        for (int i = 0; i < rowContainer.getChildCount(); i++) {
+    public void onFabPressed(View view) {
+        Intent i = new Intent(this, MudancaLayoutActivity2_1.class);
+        ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
+                MudancaLayoutActivity2.this, Pair.create(mFabButton, "fab1"), Pair.create(mHeader, "holder1"));
 
-            View rowView = rowContainer.getChildAt(i);
-
-            ViewPropertyAnimator propertyAnimator = rowView.animate()
-                    .setStartDelay(i * SCALE_DELAY)
-                    .scaleX(0).scaleY(0)
-                    .setListener(new AnimatorAdapter() {
-
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-
-                            super.onAnimationEnd(animation);
-                            finishAfterTransition();
-                        }
-                    });
-        }
+        startActivity(i, transitionActivityOptions.toBundle());
     }
 }

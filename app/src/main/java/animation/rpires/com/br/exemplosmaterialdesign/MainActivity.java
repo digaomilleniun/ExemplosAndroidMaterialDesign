@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import animation.rpires.com.br.exemplosmaterialdesign.activity.BotaoCustomizadoActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.MenuSlidingActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.ToolbarSocialActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.ListaTransitionsActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.MudancaLayoutActivity;
@@ -184,6 +185,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(it);
         } else if (id == R.id.nav_transitions_troca_layout) {
             Intent it = new Intent(this, MudancaLayoutActivity.class);
+            startActivity(it);
+        } else if (id == R.id.nav_menu_slinding) {
+            Intent it = new Intent(this, MenuSlidingActivity.class);
             startActivity(it);
         }
 

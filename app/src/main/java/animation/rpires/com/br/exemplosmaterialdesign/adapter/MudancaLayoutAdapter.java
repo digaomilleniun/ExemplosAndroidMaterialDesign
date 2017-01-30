@@ -12,6 +12,7 @@ import java.util.List;
 
 import animation.rpires.com.br.exemplosmaterialdesign.R;
 import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.MudancaLayoutActivity1;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.MudancaLayoutActivity2;
 import animation.rpires.com.br.exemplosmaterialdesign.databinding.ItemMudancaLayoutBinding;
 import animation.rpires.com.br.exemplosmaterialdesign.domain.ExemploCor;
 import animation.rpires.com.br.exemplosmaterialdesign.utilitarios.TransactionUtils;
@@ -47,6 +48,10 @@ public class MudancaLayoutAdapter extends RecyclerView.Adapter<MudancaLayoutAdap
                     case 0:
                         Pair pais = new Pair(holder.binding.sampleIcon, "fab");
                         TransactionUtils.transitionToActivity(activity, MudancaLayoutActivity1.class, sample, pais);
+                        break;
+                    case 1:
+                        Pair pais1 = new Pair(holder.binding.sampleIcon, "fab");
+                        TransactionUtils.transitionToActivity(activity, MudancaLayoutActivity2.class, sample, pais1);
                         break;
                 }
             }

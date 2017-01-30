@@ -19,4 +19,6 @@
     <integer name="anim_duration_medium">300</integer>
 
     <dimen name="fab_size">56dp</dimen>
+
+    <dimen name="navigation_drawer_width">240dp</dimen>
 </resources>

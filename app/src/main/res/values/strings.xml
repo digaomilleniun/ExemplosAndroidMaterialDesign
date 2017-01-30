@@ -41,4 +41,7 @@
     <string name="reveal_body3">View layout change animation with Circular Reveal Animation on finish</string>
     <string name="reveal_body4">Circular Reveal Animation from top with nested animations on end</string>
     <!-- Exemplo de Transitions -->
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_closed">Close</string>
 </resources>

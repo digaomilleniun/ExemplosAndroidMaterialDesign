@@ -3,14 +3,12 @@ package animation.rpires.com.br.exemplosmaterialdesign.activity.transition;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.View;
 import android.util.Pair;
-import android.widget.Button;
 
 import animation.rpires.com.br.exemplosmaterialdesign.BaseDetailActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.R;
@@ -53,7 +51,7 @@ public class MudancaLayoutActivity1 extends BaseDetailActivity {
 
     public void onFabPressed(View view) {
 
-        Intent i  = new Intent (MudancaLayoutActivity1.this, MudancaLayoutActivity2.class);
+        Intent i  = new Intent (MudancaLayoutActivity1.this, MudancaLayoutActivity1_2.class);
 
         ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
                 MudancaLayoutActivity1.this, Pair.create(mFabButton, "fab"), Pair.create(mHeader, "holder1"));

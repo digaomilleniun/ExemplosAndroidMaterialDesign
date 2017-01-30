@@ -88,4 +88,13 @@
         </menu>
     </item>
 
+    <item android:title="Menus">
+        <menu>
+            <item
+                android:id="@+id/nav_menu_slinding"
+                android:icon="@drawable/ic_menu_home"
+                android:title="Menu Slinding com seta" />
+        </menu>
+    </item>
+
 </menu>
