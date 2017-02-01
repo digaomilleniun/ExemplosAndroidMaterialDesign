@@ -25,6 +25,8 @@ import animation.rpires.com.br.exemplosmaterialdesign.activity.transition.Switch
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroCardViewFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.CarroRecyclerViewFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.FragmentBase;
+import animation.rpires.com.br.exemplosmaterialdesign.fragment.ListaCollapsingToolbarFragment;
+import animation.rpires.com.br.exemplosmaterialdesign.fragment.ListaMapasFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.SobreFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragment.SwipeRefreshFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.CarroTabsCustomizadaFragment;
@@ -189,6 +191,26 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_menu_slinding) {
             Intent it = new Intent(this, MenuSlidingActivity.class);
             startActivity(it);
+        } else if (id == R.id.nav_collapsing) {
+            ListaCollapsingToolbarFragment fragment =
+                    (ListaCollapsingToolbarFragment) getSupportFragmentManager().findFragmentByTag("fragment_container");
+            if (fragment == null) {
+                fragment = new ListaCollapsingToolbarFragment();
+                fragment.setActivity(this);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        } else if (id == R.id.nav_mapas) {
+            ListaMapasFragment fragment =
+                    (ListaMapasFragment) getSupportFragmentManager().findFragmentByTag("fragment_container");
+            if (fragment == null) {
+                fragment = new ListaMapasFragment();
+                fragment.setActivity(this);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
         }
 
         /**

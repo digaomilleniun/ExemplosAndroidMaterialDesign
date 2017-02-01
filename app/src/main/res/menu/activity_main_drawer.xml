@@ -67,6 +67,14 @@
                 android:id="@+id/nav_swipe_refresh"
                 android:icon="@drawable/ic_menu_refresh"
                 android:title="Swipe Refresh" />
+            <item
+                android:id="@+id/nav_collapsing"
+                android:icon="@drawable/ic_menu_seta_cima_baixo"
+                android:title="Exemplos de Collapsings" />
+            <item
+                android:id="@+id/nav_mapas"
+                android:icon="@drawable/ic_menu_posicao"
+                android:title="Exemplos de Mapas" />
 
         </menu>
     </item>

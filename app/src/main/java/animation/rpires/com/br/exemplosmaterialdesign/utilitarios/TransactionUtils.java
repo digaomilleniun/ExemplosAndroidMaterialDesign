@@ -14,8 +14,14 @@ import animation.rpires.com.br.exemplosmaterialdesign.domain.ExemploCor;
 
 public class TransactionUtils {
 
+
     public static void transitionToActivity(Activity activity, Class target, ExemploCor sample, Pair... otherParticipants) {
-        final Pair<View, String>[] pairs = TransitionHelper.createSafeTransitionParticipants(activity, true, otherParticipants);
+        Pair<View, String>[] pairs = null;
+        if (otherParticipants.length > 0) {
+            pairs = TransitionHelper.createSafeTransitionParticipants(activity, true, otherParticipants);
+        } else {
+            pairs = TransitionHelper.createSafeTransitionParticipants(activity, true);
+        }
         startActivity(activity, target, pairs, sample);
     }
 

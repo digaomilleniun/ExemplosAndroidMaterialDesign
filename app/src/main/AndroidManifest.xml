@@ -51,7 +51,12 @@
         <activity android:name=".activity.transition.MudancaLayoutActivity1_2" />
         <activity android:name=".activity.transition.MudancaLayoutActivity2" />
         <activity android:name=".activity.transition.MudancaLayoutActivity2_1" />
-        <activity android:name=".activity.MenuSlidingActivity"></activity>
+        <activity android:name=".activity.MenuSlidingActivity" />
+        <activity android:name=".activity.PinCollapsingToolbarLayoutActivity" />
+        <activity android:name=".activity.ParallaxCollapsingToolbarLayoutActivity" />
+        <activity android:name=".activity.CustomCollapsingToolbarLayoutActivity" />
+        <activity android:name=".activity.TabCollapsingToolbarLayoutActivity" />
+        <activity android:name=".activity.MapaSimplesActivity"></activity>
     </application>
 
 </manifest>
