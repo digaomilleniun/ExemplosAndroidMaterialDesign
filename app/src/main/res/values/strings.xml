@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Material Design</string>
 
+    <string name="google_maps_key">AQUI_VOCE_COLOCA_A_CHAVE_GERADA_NO_CONSOLE</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
