@@ -52,7 +52,8 @@ public class ListaMapasFragment extends Fragment {
     private void setupSamples() {
         exemploCors = Arrays.asList(
                 new ExemploCor(R.color.sample_green, "Mapa Simples"),
-                new ExemploCor(R.color.sample_yellow, "Mapa 1")
+                new ExemploCor(R.color.sample_yellow, "Mudando o tipo de mapa"),
+                new ExemploCor(R.color.sample_blue, "Mapa customizado")
         );
     }
 

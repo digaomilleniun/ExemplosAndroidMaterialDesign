@@ -1,4 +1,4 @@
-package animation.rpires.com.br.exemplosmaterialdesign.activity;
+package animation.rpires.com.br.exemplosmaterialdesign.activity.mapas;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -21,11 +21,13 @@ import animation.rpires.com.br.exemplosmaterialdesign.service.PermissaoService;
 
 public class MapaSimplesActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
+    private GoogleMap googleMap;
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 0;
     private LocationManager lm;
     private Location location;
     private double longitude = -23.595833;
     private double latitude = -46.686944;
+    private boolean mShowPermissionDeniedDialog = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,41 +37,54 @@ public class MapaSimplesActivity extends AppCompatActivity implements OnMapReady
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-//        if (PermissaoService.isPossuiPermissaoGPS(this)) {
-//            iniciarLocalizacao();
-//        }
     }
 
     public void iniciarLocalizacao() {
-        if (lm == null && location == null) {
-            lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10, 60000, this);
+        if (PermissaoService.isPossuiPermissaoGPS(this, MY_PERMISSIONS_REQUEST_LOCATION)) {
+            if (lm == null && location == null) {
+                lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10, 60000, this);
+            }
+
+            if (location != null) {
+                latitude = location.getLatitude();
+                longitude = location.getLongitude();
+            }
+
+            if (isGoogleMapsReady()) {
+                googleMap.setMyLocationEnabled(true);
+                googleMap.setTrafficEnabled(true);
+
+                googleMap.addMarker(new MarkerOptions().position(new LatLng(-23.595833, -46.686944)).title("Shopping Vila Olimpia"));
+                googleMap.addMarker(new MarkerOptions().position(new LatLng(-23.97245019, -46.31767273)).title("Santos"));
+
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-23.595833, -46.686944), 11));
+            }
         }
     }
 
+    private boolean isGoogleMapsReady() {
+        if (googleMap == null) {
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        if (PermissaoService.isPossuiPermissaoGPS(this, MY_PERMISSIONS_REQUEST_LOCATION)) {
+        this.googleMap = googleMap;
+        iniciarLocalizacao();
+    }
 
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        if (mShowPermissionDeniedDialog) {
             iniciarLocalizacao();
-
-            if (lm != null) {
-                if (location != null) {
-                    latitude = location.getLatitude();
-                    longitude = location.getLongitude();
-                }
-            }
-            googleMap.setMyLocationEnabled(true);
-            googleMap.setTrafficEnabled(true);
-
-            googleMap.addMarker(new MarkerOptions().position(new LatLng(-23.595833, -46.686944)).title("Shopping Vila Olimpia"));
-            googleMap.addMarker(new MarkerOptions().position(new LatLng(-23.97245019, -46.31767273)).title("Santos"));
-
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-23.595833, -46.686944), 11));
+            mShowPermissionDeniedDialog = false;
         }
+
     }
 
     @Override
@@ -83,9 +98,7 @@ public class MapaSimplesActivity extends AppCompatActivity implements OnMapReady
                     iniciarLocalizacao();
 
                 } else {
-
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
+                    mShowPermissionDeniedDialog = true;
                 }
                 return;
             }

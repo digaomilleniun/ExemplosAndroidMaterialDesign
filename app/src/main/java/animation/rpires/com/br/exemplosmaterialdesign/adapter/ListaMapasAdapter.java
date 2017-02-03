@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import animation.rpires.com.br.exemplosmaterialdesign.activity.MapaSimplesActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.mapas.LayersDemoActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.mapas.MapaCustomizadoActivity;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.mapas.MapaSimplesActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.databinding.ItemListaMapasBinding;
 import animation.rpires.com.br.exemplosmaterialdesign.domain.ExemploCor;
 import animation.rpires.com.br.exemplosmaterialdesign.utilitarios.TransactionUtils;
@@ -44,6 +46,12 @@ public class ListaMapasAdapter extends RecyclerView.Adapter<ListaMapasAdapter.Li
                 switch (holder.getAdapterPosition()) {
                     case 0:
                         TransactionUtils.transitionToActivity(activity, MapaSimplesActivity.class, sample);
+                        break;
+                    case 1:
+                        TransactionUtils.transitionToActivity(activity, LayersDemoActivity.class, sample);
+                        break;
+                    case 2:
+                        TransactionUtils.transitionToActivity(activity, MapaCustomizadoActivity.class, sample);
                         break;
                 }
             }
