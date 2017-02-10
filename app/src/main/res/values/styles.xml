@@ -171,4 +171,12 @@
         <item name="color">@android:color/white</item>
     </style>
 
+    <style name="ProgressBarStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the titulo and text -->
+        <item name="android:textColor">@color/white</item>
+        <item name="android:titleTextStyle">@android:color/black</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
 </resources>

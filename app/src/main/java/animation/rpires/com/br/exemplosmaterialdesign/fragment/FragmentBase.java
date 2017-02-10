@@ -1,5 +1,7 @@
 package animation.rpires.com.br.exemplosmaterialdesign.fragment;
 
+import java.io.Serializable;
+
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.CarroTabsCustomizadaFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.CarroTabsFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.TabsFloatingButtonsFragment;
@@ -16,5 +18,6 @@ public interface FragmentBase extends SobreFragment.OnFragmentInteractionListene
         TabsFloatingButtonsFragment.OnFragmentInteractionListener,
         SwipeRefreshFragment.OnFragmentInteractionListener,
         ListaCollapsingToolbarFragment.OnFragmentInteractionListener,
-        ListaMapasFragment.OnFragmentInteractionListener {
+        ListaMapasFragment.OnFragmentInteractionListener,
+        EscolhaLoginFragment.OnFragmentInteractionListener, Serializable{
 }

@@ -25,7 +25,17 @@
             <item
                 android:id="@+id/nav_login"
                 android:icon="@drawable/ic_user_default"
-                android:title="Logar no sistema" />
+                android:title="Entrar" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_menu_close"
+                android:title="Sair"
+                android:visible="false"/>
+            <item
+                android:id="@+id/nav_revogar_login"
+                android:icon="@drawable/ic_menu_close"
+                android:title="Revogar permissão de login"
+                android:visible="false"/>
         </menu>
     </item>
 
