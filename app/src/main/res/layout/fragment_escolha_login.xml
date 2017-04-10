@@ -35,11 +35,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/sign_in_with_firebase1"/>
 
-        <ImageView
-            android:id="@+id/btnSignEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sign_in_with_email"/>
+
 
 
     </LinearLayout>

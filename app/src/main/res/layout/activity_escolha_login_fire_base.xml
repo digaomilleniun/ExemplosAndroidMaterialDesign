@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="animation.rpires.com.br.exemplosmaterialdesign.activity.firebase.EscolhaLoginFireBaseActivity"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@drawable/toolbar_rounded_corners"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            app:titleTextColor="@color/white"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/logo"
+            android:layout_marginTop="120dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:scaleType="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/firebase_chat"/>
+
+        <include
+            layout="@layout/content_escolha_login_fire_base" />
+
+    </RelativeLayout>
+</ScrollView>
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_escolha_login_fire_base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="animation.rpires.com.br.exemplosmaterialdesign.activity.firebase.EscolhaLoginFireBaseActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarTopSocial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@drawable/toolbar_rounded_corners"
+        android:layout_margin="8dp"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ImageView
+        android:id="@+id/btnSignEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarTopSocial"
+        android:src="@drawable/sign_in_with_email"/>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnSignGooglePlus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSignEmail"
+        android:visibility="visible" />
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/btnSignFacebook"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/btnSignGooglePlus"/>
+
+    <com.facebook.widget.ProfilePictureView
+        android:id="@+id/imageProfileFacebook"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        facebook:preset_size="large"
+        android:layout_gravity="center"
+        android:layout_below="@+id/btnSignFacebook"/>
+
+</RelativeLayout>-->

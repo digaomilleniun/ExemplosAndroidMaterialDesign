@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "56501023112",
+    "firebase_url": "https://exemplosmaterialdesign.firebaseio.com",
+    "project_id": "exemplosmaterialdesign",
+    "storage_bucket": "exemplosmaterialdesign.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56501023112:android:0fcea58b85650a82",
+        "android_client_info": {
+          "package_name": "animation.rpires.com.br.exemplosmaterialdesign"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56501023112-l2ejs1pssd4i48bmomfojfrjqs9u4njq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "animation.rpires.com.br.exemplosmaterialdesign",
+            "certificate_hash": "7B068C629E9A71F29CDA0D2F51B33ACE1FDB3B9B"
+          }
+        },
+        {
+          "client_id": "56501023112-mnof4r2998p1s8s66agf4klc4bru15rc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcYuLXDyb8LKcQbiNQKECTVdNCuwtSEso"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56501023112-mnof4r2998p1s8s66agf4klc4bru15rc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

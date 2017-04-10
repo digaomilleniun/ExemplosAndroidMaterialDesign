@@ -227,9 +227,9 @@ public class GoogleLoginService
     private void updateUI(boolean signedIn, GoogleSignInAccount acct, boolean closeProgress) {
         Log.d(TAG, "updateUI: isSuccess:" + signedIn);
         if (signedIn) {
-            baseApp.getLoginObservable().atualizarENotificar(acct.getPhotoUrl(), acct.getDisplayName(), acct.getEmail(), true, closeProgress);
+            baseApp.getLoginObservable().atualizarENotificar(acct.getPhotoUrl(), acct.getDisplayName(), acct.getEmail(), true, closeProgress, TipoLogin.GOOGLE_PLUS);
         } else {
-            baseApp.getLoginObservable().atualizarENotificar(null, "Android Studio", "android.studio@android.com", false, closeProgress);
+            baseApp.getLoginObservable().atualizarENotificar(null, "Android Studio", "android.studio@android.com", false, closeProgress, TipoLogin.GOOGLE_PLUS);
         }
     }
 }

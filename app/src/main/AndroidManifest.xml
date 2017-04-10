@@ -21,7 +21,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -79,7 +78,12 @@
         <activity android:name=".activity.TabCollapsingToolbarLayoutActivity" />
         <activity android:name=".activity.mapas.MapaSimplesActivity" />
         <activity android:name=".activity.mapas.LayersDemoActivity" />
-        <activity android:name=".activity.mapas.MapaCustomizadoActivity"></activity>
+        <activity android:name=".activity.mapas.MapaCustomizadoActivity" />
+        <activity android:name=".activity.firebase.EscolhaLoginFireBaseActivity" />
+        <activity
+            android:name=".activity.firebase.CadastrarUsuarioFirebaseActivity"
+            android:label="@string/title_activity_cadastrar_usuario_firebase"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

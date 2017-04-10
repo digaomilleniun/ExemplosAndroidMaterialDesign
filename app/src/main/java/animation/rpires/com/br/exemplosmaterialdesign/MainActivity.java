@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,12 +48,10 @@ import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.CarroTabsCu
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.CarroTabsFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.fragments.tabs.TabsFloatingButtonsFragment;
 import animation.rpires.com.br.exemplosmaterialdesign.observable.LoginObservable;
-import animation.rpires.com.br.exemplosmaterialdesign.service.ConnectionLoginBase;
-import animation.rpires.com.br.exemplosmaterialdesign.service.GoogleLoginService;
-import animation.rpires.com.br.exemplosmaterialdesign.service.LoginService;
+import animation.rpires.com.br.exemplosmaterialdesign.service.TipoLogin;
 import animation.rpires.com.br.exemplosmaterialdesign.utilitarios.CircleImageView2;
 
-public class MainActivity extends AppCompatActivity //ConnectionLoginBase
+public class MainActivity extends CommonActivity //ConnectionLoginBase
         implements NavigationView.OnNavigationItemSelectedListener, FragmentBase, Observer {
 
     private NavigationView navigationView;
@@ -62,10 +59,11 @@ public class MainActivity extends AppCompatActivity //ConnectionLoginBase
     private TextView profileName;
     private TextView profileEmail;
     private MenuItem navEntrar;
-    private MenuItem navSair;
-    private MenuItem navRevogar;
+    private MenuItem navSairGoogle;
+    private MenuItem navRevogarGoogle;
+    private MenuItem navSairFirebaseEmailSenha;
 
-    private LoginService loginService;
+//    private LoginService loginService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,43 +90,54 @@ public class MainActivity extends AppCompatActivity //ConnectionLoginBase
 //        super.build(this);
 //        inicializarUsuarioSeLogado();
 
-        loginService = new LoginService(this, new GoogleLoginService(this, myBase));
-        loginService.initializerIfUserLogged();
+//        loginService = new LoginService(this, new GoogleLoginService(this, myBase));
+//        loginService.initializerIfUserLogged();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (loginService != null) {
-            loginService.onStart();
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (loginService != null) {
-            loginService.onStop();
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == GoogleLoginService.SIGN_IN && loginService != null) {
-            loginService.onActivityResult(requestCode, resultCode, data);
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if (loginService != null) {
+//            loginService.onStart();
+//        }
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        if (loginService != null) {
+//            loginService.onStop();
+//        }
+//    }
+//
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (requestCode == GoogleLoginService.SIGN_IN && loginService != null) {
+//            loginService.onActivityResult(requestCode, resultCode, data);
+//        }
+//    }
 
     private void buildView() {
-        View navHeader = LayoutInflater.from(this).inflate(R.layout.nav_header_main, null);
+//        View navHeader = LayoutInflater.from(this).inflate(R.layout.nav_header_main, null);
+//        profileImage = (CircleImageView2) navHeader.findViewById(R.id.profile_image);
+//        profileName = (TextView) navHeader.findViewById(R.id.profile_name);
+//        profileEmail = (TextView) navHeader.findViewById(R.id.profile_email);
+//
+//        Menu menu = navigationView.getMenu();
+//        navEntrar = menu.findItem(R.id.nav_login);
+//        navSairGoogle = menu.findItem(R.id.nav_logout);
+//        navRevogarGoogle = menu.findItem(R.id.nav_revogar_login);
+//        navSairFirebaseEmailSenha = menu.findItem(R.id.nav_logout_firebase_email);
+
+        View navHeader = navigationView.getHeaderView(0);
         profileImage = (CircleImageView2) navHeader.findViewById(R.id.profile_image);
         profileName = (TextView) navHeader.findViewById(R.id.profile_name);
         profileEmail = (TextView) navHeader.findViewById(R.id.profile_email);
-
         Menu menu = navigationView.getMenu();
         navEntrar = menu.findItem(R.id.nav_login);
-        navSair = menu.findItem(R.id.nav_logout);
-        navRevogar = menu.findItem(R.id.nav_revogar_login);
+        navSairGoogle = menu.findItem(R.id.nav_logout);
+        navRevogarGoogle = menu.findItem(R.id.nav_revogar_login);
+        navSairFirebaseEmailSenha = menu.findItem(R.id.nav_logout_firebase_email);
     }
 
     @Override
@@ -327,36 +336,55 @@ public class MainActivity extends AppCompatActivity //ConnectionLoginBase
     public void update(Observable o, Object arg) {
         if (o != null) {
             LoginObservable login = (LoginObservable) o;
-            View navHeader = navigationView.getHeaderView(0);
-            profileImage = (CircleImageView2) navHeader.findViewById(R.id.profile_image);
-            profileName = (TextView) navHeader.findViewById(R.id.profile_name);
-            profileEmail = (TextView) navHeader.findViewById(R.id.profile_email);
-            Menu menu = navigationView.getMenu();
-            navEntrar = menu.findItem(R.id.nav_login);
-            navSair = menu.findItem(R.id.nav_logout);
-            navRevogar = menu.findItem(R.id.nav_revogar_login);
-            if (login.getLogado()) {
-                navEntrar.setVisible(false);
-                navSair.setVisible(true);
-                navRevogar.setVisible(true);
-                profileName.setText(login.getProfileName());
-                profileEmail.setText(login.getProfileEmail());
-                new LoadProfileImage().execute(login.getProfileImage());
-                limparFrame();
-            } else {
-                navEntrar.setVisible(true);
-                navSair.setVisible(false);
-                navRevogar.setVisible(false);
-                profileName.setText(login.getProfileName());
-                profileEmail.setText(login.getProfileEmail());
-                profileImage.setImageResource(R.drawable.ic_user_default);
-//                hideProgressDialog();
-                if (login.getCloseProgress()) {
-//                    hideProgressDialog();
-                    loginService.hideProgressDialog();
-                }
+//            View navHeader = navigationView.getHeaderView(0);
+//            profileImage = (CircleImageView2) navHeader.findViewById(R.id.profile_image);
+//            profileName = (TextView) navHeader.findViewById(R.id.profile_name);
+//            profileEmail = (TextView) navHeader.findViewById(R.id.profile_email);
+//            Menu menu = navigationView.getMenu();
+//            navEntrar = menu.findItem(R.id.nav_login);
+//            navSairGoogle = menu.findItem(R.id.nav_logout);
+//            navRevogarGoogle = menu.findItem(R.id.nav_revogar_login);
+            habilitarMenusProfile(login.getLogado(), login.getTipoLogin());
+            setarDadosProfile(login);
+        }
+    }
+
+    private void setarDadosProfile(LoginObservable login) {
+        if (login.getLogado()) {
+            profileName.setText(login.getProfileName());
+            profileEmail.setText(login.getProfileEmail());
+            new LoadProfileImage().execute(login.getProfileImage());
+            limparFrame();
+        } else {
+            profileName.setText(login.getProfileName());
+            profileEmail.setText(login.getProfileEmail());
+            profileImage.setImageResource(R.drawable.ic_user_default);
+            if (login.getCloseProgress()) {
+                loginService.hideProgressDialog();
             }
         }
+
+    }
+
+    private void habilitarMenusProfile(boolean isLogado, TipoLogin tipoLogin) {
+        if (isLogado) {
+            if (tipoLogin.equals(TipoLogin.GOOGLE_PLUS)) {
+                navEntrar.setVisible(false);
+                navSairGoogle.setVisible(true);
+                navRevogarGoogle.setVisible(true);
+                navSairFirebaseEmailSenha.setVisible(false);
+            } else if (tipoLogin.equals(TipoLogin.EMAIL_SENHA)) {
+                navSairGoogle.setVisible(false);
+                navRevogarGoogle.setVisible(false);
+                navSairFirebaseEmailSenha.setVisible(true);
+            }
+        } else {
+            navEntrar.setVisible(true);
+            navSairGoogle.setVisible(false);
+            navRevogarGoogle.setVisible(false);
+            navSairFirebaseEmailSenha.setVisible(false);
+        }
+
     }
 
     private void limparFrame() {
@@ -390,6 +418,26 @@ public class MainActivity extends AppCompatActivity //ConnectionLoginBase
             loginService.hideProgressDialog();
             profileImage.setImageBitmap(result);
         }
+    }
+
+    @Override
+    protected int getIdToolbar() {
+        return 0;
+    }
+
+    @Override
+    protected String getTitleToolbar() {
+        return null;
+    }
+
+    @Override
+    protected boolean isHomeAsUpEnabled() {
+        return false;
+    }
+
+    @Override
+    protected boolean isTitleEnabled() {
+        return false;
     }
 
 }

@@ -4,6 +4,8 @@ import android.net.Uri;
 
 import java.util.Observable;
 
+import animation.rpires.com.br.exemplosmaterialdesign.service.TipoLogin;
+
 /**
  * Created by rpires on 08/02/2017.
  */
@@ -15,6 +17,7 @@ public class LoginObservable extends Observable {
     private String profileEmail;
     private Boolean isLogado;
     private Boolean isCloseProgress;
+    private TipoLogin tipoLogin;
 
     public LoginObservable() {
 
@@ -24,12 +27,14 @@ public class LoginObservable extends Observable {
                            String profileName,
                            String profileEmail,
                            Boolean isLogado,
-                           Boolean isCloseProgress) {
+                           Boolean isCloseProgress,
+                           TipoLogin tipoLogin) {
         this.profileImage = profileImage;
         this.profileName = profileName;
         this.profileEmail = profileEmail;
         this.isLogado = isLogado;
         this.isCloseProgress = isCloseProgress;
+        this.tipoLogin = tipoLogin;
         setChanged();
         notifyObservers();
     }
@@ -38,12 +43,14 @@ public class LoginObservable extends Observable {
                                     String profileName,
                                     String profileEmail,
                                     Boolean isLogado,
-                                    Boolean isCloseProgress) {
+                                    Boolean isCloseProgress,
+                                    TipoLogin tipoLogin) {
         this.profileImage = profileImage;
         this.profileName = profileName;
         this.profileEmail = profileEmail;
         this.isLogado = isLogado;
         this.isCloseProgress = isCloseProgress;
+        this.tipoLogin = tipoLogin;
         setChanged();
         notifyObservers();
     }
@@ -86,5 +93,13 @@ public class LoginObservable extends Observable {
 
     public void setCloseProgress(Boolean closeProgress) {
         isCloseProgress = closeProgress;
+    }
+
+    public TipoLogin getTipoLogin() {
+        return tipoLogin;
+    }
+
+    public void setTipoLogin(TipoLogin tipoLogin) {
+        this.tipoLogin = tipoLogin;
     }
 }

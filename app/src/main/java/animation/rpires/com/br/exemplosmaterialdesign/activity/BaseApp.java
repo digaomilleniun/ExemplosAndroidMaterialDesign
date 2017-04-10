@@ -3,6 +3,8 @@ package animation.rpires.com.br.exemplosmaterialdesign.activity;
 import android.app.Activity;
 import android.app.Application;
 
+import com.google.firebase.FirebaseApp;
+
 import java.io.Serializable;
 
 import animation.rpires.com.br.exemplosmaterialdesign.observable.LoginObservable;
@@ -21,7 +23,7 @@ public class BaseApp extends Application implements Serializable {
     public void onCreate() {
         super.onCreate();
         loginObservable = new LoginObservable();
-
+        FirebaseApp.initializeApp(this);
     }
 
     public void build(Activity activity) {

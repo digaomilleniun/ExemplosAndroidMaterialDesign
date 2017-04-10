@@ -18,6 +18,7 @@ import com.google.android.gms.common.SignInButton;
 
 import animation.rpires.com.br.exemplosmaterialdesign.MainActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.R;
+import animation.rpires.com.br.exemplosmaterialdesign.activity.firebase.EscolhaLoginFireBaseActivity;
 import animation.rpires.com.br.exemplosmaterialdesign.service.LoginService;
 
 
@@ -30,7 +31,7 @@ public class EscolhaLoginFragment extends Fragment implements  View.OnClickListe
     private ImageView imageGoogle = null;
     private ImageView imageFacebook = null;
     private ImageView imageFirebase = null;
-    private ImageView imageEmail = null;
+//    private ImageView imageEmail = null;
     private SignInButton btnGooglePlus;
 
     private OnFragmentInteractionListener mListener;
@@ -61,7 +62,7 @@ public class EscolhaLoginFragment extends Fragment implements  View.OnClickListe
         imageGoogle = (ImageView) view.findViewById(R.id.btnSignGoogleCustom);
         imageFacebook = (ImageView) view.findViewById(R.id.btnSignFacebook);
         imageFirebase = (ImageView) view.findViewById(R.id.btnSignFirebase);
-        imageEmail = (ImageView) view.findViewById(R.id.btnSignEmail);
+//        imageEmail = (ImageView) view.findViewById(R.id.btnSignEmail);
         btnGooglePlus = (SignInButton) view.findViewById(R.id.btnSignGooglePlus);
     }
 
@@ -70,7 +71,7 @@ public class EscolhaLoginFragment extends Fragment implements  View.OnClickListe
         imageGoogle.setOnTouchListener(this);
         imageFacebook.setOnTouchListener(this);
         imageFirebase.setOnTouchListener(this);
-        imageEmail.setOnTouchListener(this);
+//        imageEmail.setOnTouchListener(this);
 
     }
 
@@ -78,7 +79,7 @@ public class EscolhaLoginFragment extends Fragment implements  View.OnClickListe
         imageGoogle.setOnClickListener(this);
         imageFacebook.setOnClickListener(this);
         imageFirebase.setOnClickListener(this);
-        imageEmail.setOnClickListener(this);
+//        imageEmail.setOnClickListener(this);
         btnGooglePlus.setOnClickListener(this);
     }
 
@@ -119,6 +120,9 @@ public class EscolhaLoginFragment extends Fragment implements  View.OnClickListe
 //                activityMain.solicitarLogin();
                 loginService.signIn();
                 break;
+            case R.id.btnSignFirebase:
+                Intent itF = new Intent(activity, EscolhaLoginFireBaseActivity.class);
+                startActivity(itF);
         }
 //        startActivity(it);
     }

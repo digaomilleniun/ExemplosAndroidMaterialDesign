@@ -225,9 +225,9 @@ public class LoginGooglePlusTask extends Tarefa
     private void updateUI(boolean signedIn, GoogleSignInAccount acct, boolean closeProgress) {
         Log.d(TAG, "updateUI: isSuccess:" + signedIn);
         if (signedIn) {
-            new LoginObservable(acct.getPhotoUrl(), acct.getDisplayName(), acct.getEmail(), true, closeProgress);
+//            new LoginObservable(acct.getPhotoUrl(), acct.getDisplayName(), acct.getEmail(), true, closeProgress);
         } else {
-            new LoginObservable(null, "Android Studio", "android.studio@android.com", false, closeProgress);
+//            new LoginObservable(null, "Android Studio", "android.studio@android.com", false, closeProgress);
         }
     }
 
